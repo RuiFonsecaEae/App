@@ -1,0 +1,42 @@
+!!!
+%html{"data-ng-app" => "angularApp"}
+    %head
+    %body
+    .wrapper
+        %tabs
+            %pane.content_wrapper{:title => "First Tab"}
+                %div(ng-controller="Controller_1")
+                    %h1 Content 1
+                    .clear
+                    %a.std_btn{"ng-click" => "randomize_number()", :href => ""} Randomize
+                    %chart{"ng-model" => "data_for_random_chart"}
+                    .clear
+            %pane.content_wrapper{:title => "Second Tab"}
+                %div{"data-ng-controller" => "Controller_2"}
+                    %h1 Content 2
+                    .clear
+                    %form{"ng-submit" => "addValues()"}
+                        %input.value_input{:type => "text", :min => "1", :max => "1000", :step => "1", :pattern => "[0-9]+", :required => true, "ng-model" => "user_value"}
+                        %input.std_btn{:type => "submit", :value => "Submit"}
+                    .clear
+                    %chart{"ng-model" => "data_for_chart"}
+                    .results_wrapper
+                        %span value
+                        %span %
+                        .clear
+                        %ul{"ng-repeat" => "value in values_data"}
+                        %table.values_list
+                            %tbody
+                                %tr{ "ng-repeat" => "value in values_data"}
+                                    %td {{value.global}}
+                                    %td {{value.percent}}
+%link(rel="stylesheet" href="css/app.css")
+%script{:type => "text/javascript", :src  => "js/angular.min.js"}
+%script{:type => "text/javascript", :src  => "js/jquery-1.10.2.js"}
+%script{:type => "text/javascript", :src  => "js/jquery.flot.js"}
+%script{:type => "text/javascript", :src  => "js/jquery.flot.pie.js"}
+%script{:type => "text/javascript", :src  => "js/app.js"}
+%script{:type => "text/javascript", :src  => "js/controllers.js"}
+%script{:type => "text/javascript", :src  => "js/services.js"}
+%script{:type => "text/javascript", :src  => "js/directives.js"}
+
