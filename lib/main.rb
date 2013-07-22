@@ -1,5 +1,9 @@
 require 'sinatra'
 require 'json'
+
+module App
+   class MyApp < Sinatra::Base  
+
 set :root, File.expand_path(File.dirname(__FILE__) + '/../')
 
 #before filter
@@ -30,4 +34,7 @@ end
 
 error 403 do
   haml :error_403
+end
+
+end
 end

@@ -5,7 +5,7 @@ require 'main'
 
 
 map "/" do
-   run App
+   run App::MyApp
 end
 
  
