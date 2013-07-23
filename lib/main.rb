@@ -8,13 +8,16 @@ set :root, File.expand_path(File.dirname(__FILE__) + '/../')
 
 #before filter
  before '/*' do
+   $values = []
    puts "#{request.ip} to #{request.path}"
  end
 
 post '/random' do
   content_type :json
+  
   r = Random.new
-  rand_val = r.rand(0..1000)
+  rand_val = r.rand(0...1000)
+  puts $values.push rand_val
  {"number" => rand_val}.to_json
 end
 
